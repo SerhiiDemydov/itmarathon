@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\ApiService",
+    "\\backend\\ApiService\\Source",
+    "\\backend\\ApiService\\Source\\Api",
+    "\\backend\\ApiService\\Source\\Api\\Endpoints"
+  ],
+  "PreviewInSolutionExplorer": false
+}
