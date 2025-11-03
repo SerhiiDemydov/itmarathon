@@ -337,6 +337,7 @@ namespace Epam.ItMarathon.ApiService.Domain.Aggregate.Room
                 return Result.Failure<Room, ValidationResult>(roomCanBeModifiedResult.Error);
             }
 
+            // Check userId is not null
             var userToDelete = Users.FirstOrDefault(user => user.Id == userId);
             if(userToDelete is null)
             {
@@ -344,6 +345,8 @@ namespace Epam.ItMarathon.ApiService.Domain.Aggregate.Room
                     new ValidationFailure("user.Id", "User with the specified Id was not found in the room.")
                 ]));
             }
+
+            // 
 
             Users.Remove(userToDelete);
             return this;
