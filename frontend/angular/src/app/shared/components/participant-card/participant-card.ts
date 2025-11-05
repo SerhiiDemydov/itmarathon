@@ -58,6 +58,10 @@ export class ParticipantCard {
   public readonly ariaLabelCopy = AriaLabel.ParticipantLink;
   public readonly iconInfo = IconName.Info;
   public readonly ariaLabelInfo = AriaLabel.Info;
+  public readonly iconRemove = IconName.Remove;
+  public readonly ariaLabelRemove = AriaLabel.Remove;
+
+  public isRemoving: Record<number, boolean> = {};
 
   @HostBinding('tabindex') tab = 0;
   @HostBinding('class.list-row') rowClass = true;
@@ -166,5 +170,38 @@ export class ParticipantCard {
       },
       true
     );
+  }
+
+  public onRemoveClick(): void {
+    const participant = this.participant();
+    if (!participant?.id) return;
+
+    const confirmed = confirm(
+      `Удалить участника ${participant.firstName} ${participant.lastName}?`
+    );
+    if (!confirmed) return;
+
+    this.#userService.removeParticipant(participant.id).subscribe({
+      next: () => {
+        // Всё остальное (тосты) уже делается внутри UserService
+        // Если хочешь обновить список вручную, можно:
+        // this.removed.emit(participant.id);
+      },
+      error: () => {
+        this.#popup.show(
+          this.#host.nativeElement,
+          PopupPosition.Right,
+          {
+            message: 'Ошибка при удалении участника',
+            type: MessageType.Error,
+          },
+          false
+        );
+      },
+    });
+  }
+
+  public getRemoveAriaLabel(user: User): string {
+    return `Удалить ${user.firstName} ${user.lastName}`;
   }
 }
