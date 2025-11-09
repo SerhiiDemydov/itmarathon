@@ -1,11 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend",
     "\\backend\\ApiService",
     "\\backend\\ApiService\\Source",
     "\\backend\\ApiService\\Source\\Api",
-    "\\backend\\ApiService\\Source\\Api\\Endpoints"
+    "\\backend\\ApiService\\Source\\Api\\Endpoints",
+    "\\testautomation",
+    "\\testautomation\\SecretNick.TestAutomation",
+    "\\testautomation\\SecretNick.TestAutomation\\Tests",
+    "\\testautomation\\SecretNick.TestAutomation\\Tests\\Features",
+    "\\testautomation\\SecretNick.TestAutomation\\Tests\\Features\\Ui"
   ],
+  "SelectedNode": "\\testautomation\\SecretNick.TestAutomation\\Tests\\Features\\Ui\\UserJoinRoom.feature",
   "PreviewInSolutionExplorer": false
 }
