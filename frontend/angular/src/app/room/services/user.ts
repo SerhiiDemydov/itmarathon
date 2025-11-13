@@ -57,4 +57,30 @@ export class UserService {
       })
     );
   }
+
+  public removeParticipant(
+    participantId: number
+  ): Observable<HttpResponse<void>> {
+    return this.#apiService
+      .removeParticipant(this.#userCode(), participantId)
+      .pipe(
+        tap(({ status }) => {
+          if (status === 200 || status === 204) {
+            this.#users.update((users) =>
+              users.filter((u) => u.id !== participantId)
+            );
+
+            this.#toasterService.show(
+              ToastMessage.ParticipantRemoved,
+              MessageType.Success
+            );
+          } else {
+            this.#toasterService.show(
+              ToastMessage.NoRemovalParticipant,
+              MessageType.Error
+            );
+          }
+        })
+      );
+  }
 }

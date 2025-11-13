@@ -19,6 +19,7 @@ export const enum IconName {
   Close = 'close',
   Link = 'link',
   Info = 'info',
+  Remove = 'remove',
 }
 
 export const enum AriaLabel {
@@ -31,6 +32,7 @@ export const enum AriaLabel {
   Close = 'Close',
   ParticipantLink = 'Copy personal link',
   Info = 'Info',
+  Remove = 'Remove participant',
 }
 
 export const enum InputSidebarText {
@@ -120,6 +122,8 @@ export enum ToastMessage {
   PleaseCreateYourRoom = 'Please create your room first.',
   PleaseJoinTheRoom = 'Please join the room first',
   SuccessDrawNames = 'Success! All participants are matched.\nLet the gifting magic start!',
+  ParticipantRemoved = 'Participant has been removed successfully.',
+  NoRemovalParticipant = 'Cannot remove participant. Please try again later.',
 }
 
 export const enum InputType {

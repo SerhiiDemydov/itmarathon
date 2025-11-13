@@ -155,11 +155,11 @@ resource "aws_lb_listener" "https" {
     forward {
       target_group {
         arn  = aws_lb_target_group.web_ui_react.arn
-        weight = 50 # 50% to React
+        weight = 0 # 0% to React
       }
       target_group {
         arn  = aws_lb_target_group.web_ui_angular.arn
-        weight = 50 # 50% to Angular
+        weight = 100 # 50% to Angular
       }
       stickiness {
         enabled  = true
